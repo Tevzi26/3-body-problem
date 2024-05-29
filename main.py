@@ -175,5 +175,6 @@ while t < tmax:
 
     p += 1
 
+print("Začetek generiranja animacije.")
 video_generator.generate_gif("frames", 1, "animacija1.gif")
 print("GIF animacija ustvarjena!")
