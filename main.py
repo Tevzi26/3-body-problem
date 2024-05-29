@@ -7,7 +7,7 @@ import video_generator
 # Nastavitve
 h = 20  # Višina grafa
 w = 20  # Dolžina grafa
-N = 100  # Slika grafa na vsak N korak
+N = 10  # Slika grafa na vsak N korak
 stop = True  # Program se samodejno ustavi ko vsi objekti zapustijo graf
 
 # Začetek programa
@@ -16,21 +16,21 @@ dt = 0.001
 tmax = N  # Če je tmax = N dobimo vedno 1000 slik
 
 # telo 1
-T1 = (-1.0, 0.0)
+T1 = (-2.0, 0.0)
 F1 = (0.0, 0.0)
-V1 = (0.0, 0.5)
+V1 = (0.0, -0.01)
 A1 = (0.0, 0.0)
 
 # telo 2
-T2 = (1.0, 0.0)
+T2 = (0.02, 0.0)
 F2 = (0.0, 0.0)
-V2 = (0.0, -0.5)
+V2 = (0.0, 1.0)
 A2 = (0.0, 0.0)
 
 # telo 3
-T3 = (0.0, 0.0)
+T3 = (2.0, 0.0)
 F3 = (0.0, 0.0)
-V3 = (-0.5, 0.0)
+V3 = (0.0, -0.64)
 A3 = (0.0, 0.0)
 
 # Shranjevanje prejšnjih lokacij
@@ -167,9 +167,9 @@ while t < tmax:
         n += 1
         p = 0
 
-    if np.abs(T1[0]) > w and np.abs(T1[0]) > h and stop:
-        if np.abs(T2[0]) > w and np.abs(T2[0]) > h:
-            if np.abs(T3[0]) > w and np.abs(T3[0]) > h:
+    if np.abs(T1[0]) > w/2 and np.abs(T1[0]) > h/2 and stop:
+        if np.abs(T2[0]) > w/2 and np.abs(T2[0]) > h/2:
+            if np.abs(T3[0]) > w/2 and np.abs(T3[0]) > h/2:
                 print("Vsi objekti so zapustili graf!")
                 break
 
