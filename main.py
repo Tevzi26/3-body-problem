@@ -5,13 +5,13 @@ import shutil
 import video_generator
 
 # Nastavitve
-h = 20  # Višina grafa
-w = 20  # Dolžina grafa
+h = 10  # Višina grafa
+w = 10  # Dolžina grafa
 N = 10  # Slika grafa na vsak N korak
 stop = True  # Program se samodejno ustavi ko vsi objekti zapustijo graf
 
 # Začetek programa
-G = 6
+G = 3
 dt = 0.001
 tmax = N  # Če je tmax = N dobimo vedno 1000 slik
 
@@ -22,7 +22,7 @@ V1 = (0.0, -0.01)
 A1 = (0.0, 0.0)
 
 # telo 2
-T2 = (0.02, 0.0)
+T2 = (0.2, 0.0)
 F2 = (0.0, 0.0)
 V2 = (0.0, 1.0)
 A2 = (0.0, 0.0)
@@ -44,7 +44,7 @@ def razdalja(a, b):
 
 
 def razdaljaxy(a, b):
-    return np.abs(a[0] - b[0]), np.abs(a[1] - b[1])
+    return (-a[0] + b[0]), (-a[1] + b[1])
 
 
 def izbris_slik(dir):
@@ -105,9 +105,9 @@ while t < tmax:
     r3x, r3y = razdaljaxy(T2, T3)
 
     # Sile med telesi
-    F12 = G * r1 ** (-1.0)
-    F13 = G * r2 ** (-1.0)
-    F23 = G * r3 ** (-1.0)
+    F12 = G * r1 ** (-2.0)
+    F13 = G * r2 ** (-2.0)
+    F23 = G * r3 ** (-2.0)
 
     # Sile po komponentah x in y
     F12x = F12 * (r1x / r1)
@@ -176,5 +176,5 @@ while t < tmax:
     p += 1
 
 print("Začetek generiranja animacije.")
-video_generator.generate_gif("frames", 1, "animacija1.gif")
+video_generator.generate_gif("frames", 1, "animacija3.gif")
 print("GIF animacija ustvarjena!")
